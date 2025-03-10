@@ -17,7 +17,7 @@ const sendEmailController = async (req,res) => {
         const Email = {
             to: 'kissed05@gmail.com',
             // to: 'alis.romantsova@gmail.com',
-            subject: `Consultation MG-GROUP `,
+            subject: `Консультація MG-GROUP `,
             html: `
             <h2>Консультація MG-GROUP</h2>
             <hr>
@@ -43,7 +43,7 @@ const sendEmailController = async (req,res) => {
             // to: 'alis.romantsova@gmail.com',
             subject: `Будівництво MG-GROUP `,
             html: `
-            <h2>Замовлення на котеджі MG-GROUP</h2>
+            <h2>Замовлення на будівництво MG-GROUP</h2>
             <hr>
             <p>Імʼя:</p><h3>${name}</h3>
 
