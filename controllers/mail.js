@@ -15,8 +15,8 @@ const sendEmailController = async (req,res) => {
     if(type === 'consult'){
 
         const Email = {
-            // to: 'kissed05@gmail.com',
-            to: 'alis.romantsova@gmail.com',
+            to: 'kissed05@gmail.com',
+            // to: 'alis.romantsova@gmail.com',
             subject: `Consultation MG-GROUP `,
             html: `
             <h2>Консультація MG-GROUP</h2>
@@ -28,7 +28,7 @@ const sendEmailController = async (req,res) => {
             <p>Комментар:</p><h3>${comment}</h3>
             `
         }
-        // await sendEmail(Email)
+        await sendEmail(Email)
 
         res.status(201).json({
             message:'mail send captcha',
@@ -39,7 +39,8 @@ const sendEmailController = async (req,res) => {
 
     if(type === 'build'){
         const Email = {
-            to: 'alis.romantsova@gmail.com',
+            to: 'kissed05@gmail.com',
+            // to: 'alis.romantsova@gmail.com',
             subject: `Будівництво MG-GROUP `,
             html: `
             <h2>Замовлення на котеджі MG-GROUP</h2>
@@ -65,7 +66,7 @@ const sendEmailController = async (req,res) => {
             `
             // html: `test 123`
         }
-        // await sendEmail(Email)
+        await sendEmail(Email)
 
         res.status(201).json({
             message:'mail send captcha',
@@ -76,7 +77,8 @@ const sendEmailController = async (req,res) => {
 
     if(type === 'drill'){
         const Email = {
-            to: 'alis.romantsova@gmail.com',
+            to: 'kissed05@gmail.com',
+            // to: 'alis.romantsova@gmail.com',
             subject: `Буріння MG-GROUP`,
             html: `
             <h2>Замовлення на буріння MG-GROUP</h2>
@@ -113,7 +115,7 @@ const sendEmailController = async (req,res) => {
           
             // html: `test 123`
         }
-        // await sendEmail(Email)
+        await sendEmail(Email)
 
         res.status(201).json({
             message:'mail send captcha',
