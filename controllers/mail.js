@@ -7,40 +7,17 @@ const {sendEmail,controllerWrapper} = require('../helpers')
 
 const sendEmailController = async (req,res) => {
     console.log(req.body)
-    const recaptcha = req.body['g-recaptcha-response']
     const {type,name,phone,comment} = req.body
     const {area,basement,overlap,roof,stage,total,wall} = req.body
     const {count,deep,diametr,hard_drill,high_arm,holiday,m400,m500,material,no_water,under_two_metres,winter} = req.body
-    if(!recaptcha){
-        return res.status(400).json({ error: 'reCAPTCHA required' });
-    }
-
-    const {SECRET_RECAPTCHA_KEY} = process.env;
-
-    const recaptchaUrl = `https://www.google.com/recaptcha/api/siteverify`;
-
-    const recaptchaResponse = await fetch(recaptchaUrl, { 
-        method: 'POST', 
-        headers:{
-            Accept:"application/json",
-            "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
-        },
-        body:JSON.stringify({secret:SECRET_RECAPTCHA_KEY,response:recaptcha})
-    });
-    const recaptchaData = await recaptchaResponse.json();
-
-    if (!recaptchaData.success) {
-        return res.status(400).json({ error: 'reCAPTCHA fetch error' });
-    }
+   
 
     if(type === 'consult'){
 
         const Email = {
             // to: 'kissed05@gmail.com',
             to: 'alis.romantsova@gmail.com',
-            // to: 'info@selm.com.ua',
-            // to: 'mvt@selm.com.ua',
-            subject: `MG-GROUP Consultation`,
+            subject: `Consultation MG-GROUP `,
             html: `
             <h2>Консультація MG-GROUP</h2>
             <hr>
@@ -50,7 +27,6 @@ const sendEmailController = async (req,res) => {
 
             <p>Комментар:</p><h3>${comment}</h3>
             `
-            // html: `test 123`
         }
         // await sendEmail(Email)
 
@@ -64,9 +40,7 @@ const sendEmailController = async (req,res) => {
     if(type === 'build'){
         const Email = {
             to: 'alis.romantsova@gmail.com',
-            // to: 'info@selm.com.ua',
-            // to: 'mvt@selm.com.ua',
-            subject: `MG-GROUP build`,
+            subject: `Будівництво MG-GROUP `,
             html: `
             <h2>Замовлення на котеджі MG-GROUP</h2>
             <hr>
@@ -103,9 +77,7 @@ const sendEmailController = async (req,res) => {
     if(type === 'drill'){
         const Email = {
             to: 'alis.romantsova@gmail.com',
-            // to: 'info@selm.com.ua',
-            // to: 'mvt@selm.com.ua',
-            subject: `MG-GROUP drilling`,
+            subject: `Буріння MG-GROUP`,
             html: `
             <h2>Замовлення на буріння MG-GROUP</h2>
             <hr>
