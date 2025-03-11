@@ -1,4 +1,4 @@
-const CreateError = require("http-errors");
+// const CreateError = require("http-errors");
 // this is decorator
 
 const controllerWrapper = (controller) => {
@@ -6,7 +6,8 @@ const controllerWrapper = (controller) => {
 		try {
 			await controller(req, res, next);
 		} catch (error) {
-			next(CreateError(...error));
+			// next(CreateError(...error));
+			next(error);
 		}
 	};
 	return func;

@@ -1,24 +1,18 @@
-const {sendEmail,controllerWrapper} = require('../helpers')
+const { sendEmail, controllerWrapper } = require("../helpers");
 
+const sendEmailController = async (req, res) => {
+	// console.log(req.body)
+	const { type, name, phone, comment } = req.body;
+	const { area, basement, overlap, roof, stage, total, wall } = req.body;
+	const { count, deep, diametr, hard_drill, high_arm, holiday, m400, m500, material, no_water, under_two_metres, winter } =
+		req.body;
 
-
-
-
-
-const sendEmailController = async (req,res) => {
-    console.log(req.body)
-    const {type,name,phone,comment} = req.body
-    const {area,basement,overlap,roof,stage,total,wall} = req.body
-    const {count,deep,diametr,hard_drill,high_arm,holiday,m400,m500,material,no_water,under_two_metres,winter} = req.body
-   
-
-    if(type === 'consult'){
-
-        const Email = {
-            to: 'kissed05@gmail.com',
-            // to: 'alis.romantsova@gmail.com',
-            subject: `Консультація MG-GROUP `,
-            html: `
+	if (type === "consult") {
+		const Email = {
+			to: "kissed05@gmail.com",
+			// to: 'alis.romantsova@gmail.com',
+			subject: `Консультація MG-GROUP `,
+			html: `
             <h2>Консультація MG-GROUP</h2>
             <hr>
             <p>Імʼя:</p><h3>${name}</h3>
@@ -26,23 +20,23 @@ const sendEmailController = async (req,res) => {
             <p>Номер телефону:</p><h3>${phone}</h3>
 
             <p>Комментар:</p><h3>${comment}</h3>
-            `
-        }
-        await sendEmail(Email)
+            `,
+		};
+		await sendEmail(Email);
 
-        res.status(201).json({
-            message:'mail send captcha',
-            status:201,
-        })
-    return
-    }
+		res.status(201).json({
+			message: "mail send captcha",
+			status: 201,
+		});
+		return;
+	}
 
-    if(type === 'build'){
-        const Email = {
-            to: 'kissed05@gmail.com',
-            // to: 'alis.romantsova@gmail.com',
-            subject: `Будівництво MG-GROUP `,
-            html: `
+	if (type === "build") {
+		const Email = {
+			to: "kissed05@gmail.com",
+			// to: 'alis.romantsova@gmail.com',
+			subject: `Будівництво MG-GROUP `,
+			html: `
             <h2>Замовлення на будівництво MG-GROUP</h2>
             <hr>
             <p>Імʼя:</p><h3>${name}</h3>
@@ -63,24 +57,24 @@ const sendEmailController = async (req,res) => {
             <hr>
             <p>Загальна сума:</p><h3>${total}</h3>
 
-            `
-            // html: `test 123`
-        }
-        await sendEmail(Email)
+            `,
+			// html: `test 123`
+		};
+		await sendEmail(Email);
 
-        res.status(201).json({
-            message:'mail send captcha',
-            status:201,
-        })
-        return
-    }
+		res.status(201).json({
+			message: "mail send captcha",
+			status: 201,
+		});
+		return;
+	}
 
-    if(type === 'drill'){
-        const Email = {
-            to: 'kissed05@gmail.com',
-            // to: 'alis.romantsova@gmail.com',
-            subject: `Буріння MG-GROUP`,
-            html: `
+	if (type === "drill") {
+		const Email = {
+			to: "kissed05@gmail.com",
+			// to: 'alis.romantsova@gmail.com',
+			subject: `Буріння MG-GROUP`,
+			html: `
             <h2>Замовлення на буріння MG-GROUP</h2>
             <hr>
             <p>Імʼя:</p><h3>${name}</h3>
@@ -111,18 +105,17 @@ const sendEmailController = async (req,res) => {
             <hr>
 
             <p>Загальна сума:</p><h3>${total}</h3>
-            `
-          
-            // html: `test 123`
-        }
-        await sendEmail(Email)
+            `,
 
-        res.status(201).json({
-            message:'mail send captcha',
-            status:201,
-        })
-    }
-}
-    
+			// html: `test 123`
+		};
+		await sendEmail(Email);
 
-module.exports = controllerWrapper(sendEmailController)
+		res.status(201).json({
+			message: "mail send captcha",
+			status: 201,
+		});
+	}
+};
+
+module.exports = controllerWrapper(sendEmailController);
