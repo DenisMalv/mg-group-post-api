@@ -21,6 +21,9 @@ app.use("/api/mail", mailRouter);
 app.use("/health", (req, res) => {
 	res.status(200).json({ message: "server running" });
 });
+app.use("/work", (req, res) => {
+	res.status(200).json({ message: "i am working, dont worry :)" });
+});
 
 app.use((req, res) => {
 	res.status(404).json({ message: "Page - Not found" });

@@ -1,22 +1,21 @@
-const app = require('./app')
-const dotenv = require('dotenv')
-const fetch = require('node-fetch');
-dotenv.config()
+const app = require("./app");
+const dotenv = require("dotenv");
+const fetch = require("node-fetch");
+dotenv.config();
 
-const {DB_HOST, PORT} = process.env
+const { DB_HOST, PORT } = process.env;
 
-    app.listen(PORT, () => {
-      console.log(`Server running. Use our API on port: ${PORT}`)
-    })
+app.listen(PORT, () => {
+	console.log(`Server running. Use our API on port: ${PORT}`);
+});
 
-
-// setInterval(() => {
-// fetch(`https://mvt-api.onrender.com/health`)
-//   .then(response => response.text())
-//   .then(data => {
-//     console.log('GET /health:');
-//   })
-//   .catch(error => {
-//     console.error('GET /health Error:', error.message);
-//   });
-// }, 600000);
+setInterval(() => {
+	fetch(`https://mg-group-post-api.onrender.com/health`)
+		.then((response) => response.text())
+		.then((data) => {
+			console.log("GET server health:");
+		})
+		.catch((error) => {
+			console.error("GET server health Error:", error.message);
+		});
+}, 3600000);

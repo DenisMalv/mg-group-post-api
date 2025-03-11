@@ -9,7 +9,7 @@ const sendEmailController = async (req, res) => {
 
 	if (type === "consult") {
 		const Email = {
-			to: "kissed05@gmail.com",
+			to: "mgbeton12@gmail.com",
 			// to: 'alis.romantsova@gmail.com',
 			subject: `Консультація MG-GROUP `,
 			html: `
@@ -33,9 +33,9 @@ const sendEmailController = async (req, res) => {
 
 	if (type === "build") {
 		const Email = {
-			to: "kissed05@gmail.com",
+			to: "mgbeton12@gmail.com",
 			// to: 'alis.romantsova@gmail.com',
-			subject: `Будівництво MG-GROUP `,
+			subject: `Замовлення на будівництво MG-GROUP `,
 			html: `
             <h2>Замовлення на будівництво MG-GROUP</h2>
             <hr>
@@ -71,9 +71,9 @@ const sendEmailController = async (req, res) => {
 
 	if (type === "drill") {
 		const Email = {
-			to: "kissed05@gmail.com",
+			to: "mgbeton12@gmail.com",
 			// to: 'alis.romantsova@gmail.com',
-			subject: `Буріння MG-GROUP`,
+			subject: `Замовлення на буріння MG-GROUP`,
 			html: `
             <h2>Замовлення на буріння MG-GROUP</h2>
             <hr>
@@ -93,14 +93,14 @@ const sendEmailController = async (req, res) => {
 
             <p>Додаткові умови:</p>
             
-            ${under_two_metres === false && "<p>Буріння вище 2 метрів</p>"}
-            ${high_arm === false && "<p>Висока армованість</p>"}
-            ${m500 === true && "<p>Буріння в бетоні М500</p>"}
-            ${m400 === true && "<p>Буріння в бетоні М400</p>"}
-            ${winter === true && "<p>Роботи в зимових умовах</p>"}
-            ${hard_drill === true && "<p>Буріння у важкодоступних, небезпечних місцях</p>"}
-            ${no_water === true && "<p>Відсутність води на об’єкті</p>"}
-            ${holiday === true && "<p>Буріння в нічний час або вихідні, святкові дні</p>"}
+            ${under_two_metres === true ? "<p>Буріння вище 2 метрів</p>" : ""}
+            ${high_arm === true ? "<p>Висока армованість</p>" : ""}
+            ${m500 === true ? "<p>Буріння в бетоні М500</p>" : ""}
+            ${m400 === true ? "<p>Буріння в бетоні М400</p>" : ""}
+            ${winter === true ? "<p>Роботи в зимових умовах</p>" : ""}
+            ${hard_drill === true ? "<p>Буріння у важкодоступних, небезпечних місцях</p>" : ""}
+            ${no_water === true ? "<p>Відсутність води на об’єкті</p>" : ""}
+            ${holiday === true ? "<p>Буріння в нічний час або вихідні, святкові дні</p>" : ""}
 
             <hr>
 
