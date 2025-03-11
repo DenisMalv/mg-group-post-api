@@ -9,8 +9,9 @@ app.listen(PORT, () => {
 	console.log(`Server running. Use our API on port: ${PORT}`);
 });
 
-setInterval(() => {
-	fetch(`https://mg-group-post-api.onrender.com/health`)
+function wakeUp() {
+	console.log("------------- wake up --------------");
+	fetch(`https://mg-group-post-api.onrender.com/work`)
 		.then((response) => response.text())
 		.then((data) => {
 			console.log("GET server health:");
@@ -18,4 +19,9 @@ setInterval(() => {
 		.catch((error) => {
 			console.error("GET server health Error:", error.message);
 		});
+}
+wakeUp();
+
+setInterval(() => {
+	wakeUp();
 }, 60 * 40 * 1000);
