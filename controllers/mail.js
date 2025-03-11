@@ -1,7 +1,7 @@
 const { sendEmail, controllerWrapper } = require("../helpers");
 
 const sendEmailController = async (req, res) => {
-	// console.log(req.body)
+	// console.log(req.body);
 	const { type, name, phone, comment } = req.body;
 	const { area, basement, overlap, roof, stage, total, wall } = req.body;
 	const { count, deep, diametr, hard_drill, high_arm, holiday, m400, m500, material, no_water, under_two_metres, winter } =
