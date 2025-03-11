@@ -18,4 +18,4 @@ setInterval(() => {
 		.catch((error) => {
 			console.error("GET server health Error:", error.message);
 		});
-}, 3600000);
+}, 60 * 40 * 1000);
