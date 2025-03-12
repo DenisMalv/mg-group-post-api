@@ -10,7 +10,7 @@ app.listen(PORT, () => {
 });
 
 function wakeUp() {
-	console.log("------------- wake up --------------");
+	console.log("------------- server clg wake up --------------");
 	fetch(`https://mg-group-post-api.onrender.com/work`)
 		.then((response) => response.text())
 		.then((data) => {

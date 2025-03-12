@@ -26,7 +26,7 @@ const transport = nodemailer.createTransport(nodemailerConfig);
 
 const sendEmail = async (data) => {
 	// const email = {...data, from:'MVT BEARINGS LANDING kissed03@meta.ua'} //dev.
-	const email = { ...data, from: "mg-group - mgbeton@meta.ua" }; //customer
+	const email = { ...data, from: "МГ-Груп - mgbeton@meta.ua" }; //customer
 	await transport.sendMail(email);
 	return true;
 };
